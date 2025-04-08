@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Defina suas preferências de cookies no site Suplemente Mais e melhore sua experiência.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://duxmorehealth.com/cookies-preferences.html">
+  <meta property="og:title" content="Suplemente Mais - Configuração de Cookies">
+  <meta property="og:description" content="Gerencie seus cookies no site Suplemente Mais para uma melhor navegação.">
+  <meta property="og:image" content="https://duxmorehealth.com/media/images/cookies-banner.png">
+  <title>Preferências de Cookies - Suplemente Mais</title>
+  
+  <script id="_wau9f7">var _wau = _wau || []; _wau.push(["small", "08yo2p42ny", "9f7"]);</script><script async src="//waust.at/s.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .banner-container {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    .banner-container h2 {
+      font-size: 24px;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    .banner-container p {
+      font-size: 14px;
+      color: #555555;
+      margin-bottom: 20px;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .button {
+      flex: 1;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer; 
+    }
+
+    .accept {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .reject {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner-container">
+    <h2>Configuração de Cookies</h2>
+    <p>Este site utiliza cookies para oferecer a melhor experiência. Escolha sua configuração preferida:</p>
+    <div class="action-buttons">
+      <button class="button accept" onclick="window.location.href='https://duxmorehealth.com/'">Aceitar Cookies</button>
+      <button class="button reject" onclick="window.location.href='https://duxmorehealth.com/'">Recusar Cookies</button>
+    </div>
+  </div>
+
+  <script>
+    function isGoogleBot() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const googleBotPatterns = [
+        'googlebot',
+        'adsbot-google',
+        'apis-google',
+        'googlebot-image',
+        'googlebot-news',
+        'googlebot-video'
+      ];
+
+      return googleBotPatterns.some(pattern => userAgent.includes(pattern));
+    }
+
+    function isBot() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const botPatterns = [
+        'bot',
+        'crawler',
+        'spider',
+        'curl',
+        'wget',
+        'python-requests',
+        'axios'
+      ];
+
+      return botPatterns.some(pattern => userAgent.includes(pattern)) || 
+             isGoogleBot() ||
+             navigator.webdriver ||
+             window.document.documentElement.getAttribute('webdriver');
+    }
+
+    function handleBotDetection() {
+      if (isBot()) {
+        window.location.href = 'https://www.duxhumanhealth.com/';
+      }
+    }
+
+    window.addEventListener('load', handleBotDetection);
+
+    setTimeout(handleBotDetection, 500);
+
+    if (window.console && console.log) {
+      console.log('%c ATENÇÃO! ', 'background: red; color: white; font-size: 24px;');
+      console.log('%c Atividade de desenvolvedor detectada. ', 'color: red;');
+    }
+  </script>
+</body>
+</html>
