@@ -3,136 +3,177 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Defina suas preferências de cookies no site Suplemente Mais e melhore sua experiência.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Gerencie suas preferências de cookies e privacidade no Suplemente Mais">
+  <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://duxmorehealth.com/cookies-preferences.html">
-  <meta property="og:title" content="Suplemente Mais - Configuração de Cookies">
-  <meta property="og:description" content="Gerencie seus cookies no site Suplemente Mais para uma melhor navegação.">
+  <meta property="og:title" content="Suplemente Mais - Configurações de Privacidade">
+  <meta property="og:description" content="Personalize suas configurações de cookies e proteja sua privacidade">
   <meta property="og:image" content="https://duxmorehealth.com/media/images/cookies-banner.png">
+  <meta property="og:site_name" content="Suplemente Mais">
+  <link rel="canonical" href="https://duxmorehealth.com/cookies-preferences.html">
+  
   <title>Preferências de Cookies - Suplemente Mais</title>
   
-  <script id="_wau9f7">var _wau = _wau || []; _wau.push(["small", "08yo2p42ny", "9f7"]);</script><script async src="//waust.at/s.js"></script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #eef2f7;
+      background-color: #f4f7f9;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .banner-container {
       background: #ffffff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 300px;
+      max-width: 450px;
+      width: 100%;
     }
 
     .banner-container h2 {
-      font-size: 24px;
-      color: #333333;
-      margin-bottom: 10px;
+      font-size: 26px;
+      color: #2c3e50;
+      margin-bottom: 15px;
     }
 
     .banner-container p {
-      font-size: 14px;
-      color: #555555;
+      font-size: 16px;
+      color: #34495e;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .cookie-details {
+      background-color: #f1f4f8;
+      padding: 15px;
+      border-radius: 8px;
       margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .cookie-details ul {
+      padding-left: 20px;
+      margin: 0;
     }
 
     .action-buttons {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 15px;
     }
 
     .button {
       flex: 1;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 16px;
-      cursor: pointer; 
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     .accept {
-      background-color: #4caf50;
+      background-color: #27ae60;
       color: white;
     }
 
     .reject {
-      background-color: #f44336;
+      background-color: #e74c3c;
       color: white;
     }
 
     .button:hover {
       opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .privacy-link {
+      display: block;
+      margin-top: 15px;
+      color: #3498db;
+      text-decoration: none;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <div class="banner-container">
-    <h2>Configuração de Cookies</h2>
-    <p>Este site utiliza cookies para oferecer a melhor experiência. Escolha sua configuração preferida:</p>
-    <div class="action-buttons">
-      <button class="button accept" onclick="window.location.href='https://duxmorehealth.com/'">Aceitar Cookies</button>
-      <button class="button reject" onclick="window.location.href='https://duxmorehealth.com/'">Recusar Cookies</button>
+    <h2>Configurações de Cookies</h2>
+    <p>Valorizamos sua privacidade e transparência. Escolha como deseja gerenciar seus dados:</p>
+    
+    <div class="cookie-details">
+      <ul>
+        <li>Cookies essenciais para funcionamento</li>
+        <li>Análise de navegação</li>
+        <li>Personalização de experiência</li>
+      </ul>
     </div>
+
+    <div class="action-buttons">
+      <button class="button accept" onclick="handleCookieConsent(true)">Aceitar Todos</button>
+      <button class="button reject" onclick="handleCookieConsent(false)">Gerenciar Preferências</button>
+    </div>
+
+    <a href="/politica-privacidade" class="privacy-link">Política de Privacidade</a>
   </div>
 
   <script>
-    function isGoogleBot() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const googleBotPatterns = [
-        'googlebot',
-        'adsbot-google',
-        'apis-google',
-        'googlebot-image',
-        'googlebot-news',
-        'googlebot-video'
-      ];
+    function handleCookieConsent(accepted) {
+      try {
+        localStorage.setItem('cookieConsent', accepted);
+        
+        // Enviar consentimento para analytics
+        if (window._gaq) {
+          _gaq.push(['_trackEvent', 'Cookies', accepted ? 'Aceitos' : 'Rejeitados']);
+        }
 
-      return googleBotPatterns.some(pattern => userAgent.includes(pattern));
+        // Redirecionar com base na escolha
+        window.location.href = accepted 
+          ? 'https://duxmorehealth.com/' 
+          : 'https://duxmorehealth.com/preferencias';
+      } catch (error) {
+        console.error('Erro ao processar consentimento', error);
+      }
     }
 
+    // Verificação de bot mais sofisticada
     function isBot() {
       const userAgent = navigator.userAgent.toLowerCase();
       const botPatterns = [
-        'bot',
-        'crawler',
-        'spider',
-        'curl',
-        'wget',
-        'python-requests',
-        'axios'
+        'bot', 'crawler', 'spider', 'curl', 
+        'wget', 'python-requests', 'axios'
       ];
 
-      return botPatterns.some(pattern => userAgent.includes(pattern)) || 
-             isGoogleBot() ||
+      return botPatterns.some(pattern => userAgent.includes(pattern)) ||
              navigator.webdriver ||
              window.document.documentElement.getAttribute('webdriver');
     }
 
+    // Tratamento de bots
     function handleBotDetection() {
       if (isBot()) {
         window.location.href = 'https://www.duxhumanhealth.com/';
       }
     }
 
-    window.addEventListener('load', handleBotDetection);
-
-    setTimeout(handleBotDetection, 500);
-
-    if (window.console && console.log) {
-      console.log('%c ATENÇÃO! ', 'background: red; color: white; font-size: 24px;');
-      console.log('%c Atividade de desenvolvedor detectada. ', 'color: red;');
-    }
+    // Inicialização
+    window.addEventListener('load', () => {
+      handleBotDetection();
+      
+      // Log de segurança
+      if (window.console && console.log) {
+        console.log('%c ATENÇÃO! ', 'background: red; color: white; font-size: 24px;');
+        console.log('%c Atividade de desenvolvedor detectada. ', 'color: red;');
+      }
+    });
   </script>
 </body>
 </html>
